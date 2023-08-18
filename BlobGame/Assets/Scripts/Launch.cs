@@ -35,6 +35,11 @@ public class Launch : MonoBehaviour
             canLaunch = true;
         }
 
+        if (arrowInstance != null)
+        {
+            arrowInstance.transform.position = transform.position;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             dragStartWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
