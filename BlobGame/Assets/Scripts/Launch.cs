@@ -5,19 +5,36 @@ using UnityEngine;
 public class Launch : MonoBehaviour
 {
     public float launchForce = 10f;
-    public GameObject arrowPrefab; // Assign the 2D arrow sprite prefab in the Inspector
+    public GameObject arrowPrefab;
 
     private Rigidbody2D rb;
     private Vector2 dragStartWorldPosition;
     private GameObject arrowInstance;
+    private bool canLaunch = true;
+    private bool isColliding = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        isColliding = true;
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        isColliding = false;
+    }
+
     void Update()
     {
+        if (!canLaunch && !isColliding)
+        {
+            canLaunch = true;
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             dragStartWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -26,11 +43,6 @@ public class Launch : MonoBehaviour
             {
                 arrowInstance = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
             }
-        }
-
-        if (arrowInstance != null)
-        {
-            arrowInstance.transform.position = transform.position;
         }
 
         if (Input.GetMouseButton(0))
@@ -55,7 +67,11 @@ public class Launch : MonoBehaviour
             Vector2 dragEndWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 launchDirection = (dragEndWorldPosition - dragStartWorldPosition).normalized;
 
-            rb.velocity = launchDirection * launchForce;
+            if (isColliding && canLaunch)
+            {
+                rb.velocity = launchDirection * launchForce;
+                canLaunch = false;
+            }
         }
     }
 }
