@@ -61,8 +61,9 @@ public class Launch : MonoBehaviour
 
             if (arrowInstance != null)
             {
-                float angle = Mathf.Atan2(launchDirection.y, launchDirection.x) * Mathf.Rad2Deg;
-                arrowInstance.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 direction = (mousePosition - transform.position).normalized;
+                arrowInstance.transform.right = direction;
             }
         }
 
@@ -73,12 +74,12 @@ public class Launch : MonoBehaviour
                 Destroy(arrowInstance);
             }
 
-            Vector2 dragEndWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 launchDirection = (dragEndWorldPosition - dragStartWorldPosition).normalized;
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = (mousePosition - transform.position).normalized;
 
             if (isColliding && canLaunch)
             {
-                rb.velocity = launchDirection * launchForce;
+                rb.velocity = direction * launchForce;
                 canLaunch = false;
             }
         }

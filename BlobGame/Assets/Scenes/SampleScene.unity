@@ -1663,7 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea269e314fe3a64db99509f9019eae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchForce: 10
+  launchForce: 30
   arrowPrefab: {fileID: 4330644846367429819, guid: 4de2ddc3ec632eb49a77c2a223c81074, type: 3}
 --- !u!114 &733280117
 MonoBehaviour:
