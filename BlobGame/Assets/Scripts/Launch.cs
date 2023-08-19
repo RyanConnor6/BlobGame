@@ -18,19 +18,23 @@ public class Launch : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private bool IsColliding()
     {
-        isColliding = true;
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        isColliding = false;
+        return rb.IsTouchingLayers(); // No arguments means any layer
     }
 
     void Update()
     {
+        isColliding = IsColliding();
+
+        Debug.Log(isColliding + " " + canLaunch);
+
         if (!canLaunch && !isColliding)
+        {
+            canLaunch = true;
+        }
+
+        if (!canLaunch && isColliding)
         {
             canLaunch = true;
         }
