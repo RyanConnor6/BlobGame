@@ -203,13 +203,20 @@ MonoBehaviour:
   groundTilemap: {fileID: 775574577}
   obstacleTilemap: {fileID: 1152096153}
   groundTile: {fileID: 11400000, guid: 8c73a7bd0d429fd49b61201f7d73008b, type: 2}
+  stage1Tile: {fileID: 11400000, guid: de3695f9a2bcb00409b9c59250d4fc5d, type: 2}
+  stage2Tile: {fileID: 11400000, guid: 48cbc1d92ad789c4aa2415dddb269e0d, type: 2}
+  stage3Tile: {fileID: 11400000, guid: 51f39a55bec677547bca98adeb183ea1, type: 2}
+  stage4Tile: {fileID: 11400000, guid: e30a5a45bcc5a53499ddb4f621e9e1da, type: 2}
+  stage5Tile: {fileID: 11400000, guid: 5c34084aa83c92643899a57cc34d8699, type: 2}
+  stage6Tile: {fileID: 11400000, guid: febb9cf7a029660459e04456580f9cfa, type: 2}
+  stage7Tile: {fileID: 11400000, guid: 89ba65d115099304ea86869cef46ddc3, type: 2}
   pillarTile: {fileID: 11400000, guid: 8c73a7bd0d429fd49b61201f7d73008b, type: 2}
   mapWidth: 1000
   mapHeight: 10
   maxpillarSpacing: 10
   minpillarSpacing: 5
-  maxpillarHeight: 10
-  minpillarHeight: 3
+  maxpillarHeight: 6
+  minpillarHeight: 2
 --- !u!4 &250521677
 Transform:
   m_ObjectHideFlags: 0
