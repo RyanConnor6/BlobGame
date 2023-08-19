@@ -6,8 +6,10 @@ using UnityEngine.Tilemaps;
 public class procgene : MonoBehaviour
 {
     public Tilemap groundTilemap;
+    public Tilemap wallTilemap;
     public Tilemap obstacleTilemap;
     public Tile groundTile;
+    public Tile wallTile;
     public Tile stage1Tile;
     public Tile stage2Tile;
     public Tile stage3Tile;
@@ -48,42 +50,58 @@ public class procgene : MonoBehaviour
                 lastPillarx = x;
             }
 
+            for (int y = -1; y < mapHeight; y++)
+            {
+                Vector3Int walltilePosition = new Vector3Int(x, y, 0);
+                wallTilemap.SetTile(walltilePosition, wallTile);
+            }
+
             Vector3Int tilePosition = new Vector3Int(x, -2, 0);
 
             if (x < 100)
             {
                 groundTilemap.SetTile(tilePosition, groundTile);
-            }else if (x < 200)
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), groundTile);
+            }
+            else if (x < 200)
             {
                 groundTilemap.SetTile(tilePosition, stage1Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage1Tile);
             }
             else if (x < 300)
             {
                 groundTilemap.SetTile(tilePosition, stage2Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage2Tile);
             }
             else if (x < 400)
             {
                 groundTilemap.SetTile(tilePosition, stage3Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage3Tile);
             }
             else if (x < 500)
             {
                 groundTilemap.SetTile(tilePosition, stage4Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage4Tile);
             }
             else if (x < 600)
             {
                 groundTilemap.SetTile(tilePosition, stage5Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage5Tile);
             }
             else if (x < 700)
             {
                 groundTilemap.SetTile(tilePosition, stage6Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage6Tile);
             }
             else if (x < 800)
             {
                 groundTilemap.SetTile(tilePosition, stage7Tile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), stage7Tile);
             }
             else
             {
                 groundTilemap.SetTile(tilePosition, groundTile);
+                groundTilemap.SetTile(tilePosition + new Vector3Int(0, 12, 0), groundTile);
             }
 
             if (x == lastPillarx + pillarSpacing)
