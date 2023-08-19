@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 733280113}
   smoothSpeed: 4
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: 2}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1665,6 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 30
+  maxLaunch: 13
   arrowPrefab: {fileID: 4330644846367429819, guid: 4de2ddc3ec632eb49a77c2a223c81074, type: 3}
 --- !u!114 &733280117
 MonoBehaviour:

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Launch : MonoBehaviour
 {
     public float launchForce = 10f;
+    public float maxLaunch = 10f;
     public GameObject arrowPrefab;
 
     private Rigidbody2D rb;
@@ -79,7 +80,12 @@ public class Launch : MonoBehaviour
 
             if (isColliding && canLaunch)
             {
+
                 rb.velocity = direction * launchForce;
+                if (rb.velocity.magnitude > maxLaunch)
+                {
+                    rb.velocity = rb.velocity.normalized * maxLaunch;
+                }
                 canLaunch = false;
             }
         }
