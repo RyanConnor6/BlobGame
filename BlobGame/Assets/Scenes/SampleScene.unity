@@ -250,7 +250,7 @@ MonoBehaviour:
   upTile: {fileID: 11400000, guid: de3695f9a2bcb00409b9c59250d4fc5d, type: 2}
   rightTile: {fileID: 11400000, guid: 48cbc1d92ad789c4aa2415dddb269e0d, type: 2}
   downTile: {fileID: 11400000, guid: e30a5a45bcc5a53499ddb4f621e9e1da, type: 2}
-  roomSize: 11
+  roomSize: 12
 --- !u!4 &496331958
 Transform:
   m_ObjectHideFlags: 0
