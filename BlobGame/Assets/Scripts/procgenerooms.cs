@@ -29,9 +29,9 @@ public class procgenerooms : MonoBehaviour
     {
         nextXStart = roomplaceposX;
         nextYStart = roomplaceposY;
-        for (int rooms = 0; rooms < 2; rooms++)
+        for (int rooms = 0; rooms < 1; rooms++)
         {
-            if (lastroomType == 0)
+            if (lastroomType == 0) //Last room went right, can go right up or down
             {
                 int randomValue = Random.Range(0, 3);
                 //int randomValue = 2;
@@ -42,6 +42,10 @@ public class procgenerooms : MonoBehaviour
 
                         roomplaceposX = nextXStart;
                         roomplaceposY = nextYStart;
+
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
+
                         for (int i = 0; i < roomSize; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
@@ -56,6 +60,7 @@ public class procgenerooms : MonoBehaviour
                             roomplaceposX++;
                         }
                         roomplaceposX--;
+
                         nextXStart = roomplaceposX;
                         nextYStart = roomplaceposY;
                         lastroomType = 0;
@@ -65,7 +70,7 @@ public class procgenerooms : MonoBehaviour
 
                         roomplaceposX = nextXStart;
                         roomplaceposY = nextYStart;
-                        nextXStart = roomplaceposX;
+
                         for (int i = 0; i < roomSize; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
@@ -84,7 +89,11 @@ public class procgenerooms : MonoBehaviour
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                             groundTilemap.SetTile(tilePosition1, upTile);
                         }
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
+
                         nextYStart = roomplaceposY;
+
                         lastroomType = 1;
                         break;
 
@@ -92,7 +101,6 @@ public class procgenerooms : MonoBehaviour
 
                         roomplaceposX = nextXStart;
                         roomplaceposY = nextYStart;
-                        nextXStart = roomplaceposX;
                         for (int i = 0; i < roomSize; i++)
                         {
                             Vector3Int tilePosition2 = new Vector3Int(roomplaceposX, roomplaceposY + roomSize - 1, 0);
@@ -111,6 +119,10 @@ public class procgenerooms : MonoBehaviour
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                             groundTilemap.SetTile(tilePosition1, downTile);
                         }
+
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
+
                         nextYStart = roomplaceposY - roomSize * 2 + 2;
                         lastroomType = 2;
                         break;
@@ -123,10 +135,10 @@ public class procgenerooms : MonoBehaviour
                 }
             }
 
-            if (lastroomType == 1)
+            if (lastroomType == 1) // Last room went up, can go right or up
             {
-                //int randomValue = Random.Range(0, 2);
-                int randomValue = 0;
+                int randomValue = Random.Range(0, 2);
+                //int randomValue = 1;
 
                 switch (randomValue)
                 {
@@ -135,13 +147,11 @@ public class procgenerooms : MonoBehaviour
                         roomplaceposX = nextXStart;
                         roomplaceposY = nextYStart;
 
-                        nextYStart = roomplaceposY;
-                        roomplaceposY--;
-                        for (int i = 0; i < roomSize; i++)
+                        for (int i = 0; i < roomSize - 1; i++)
                         {
-                            roomplaceposY++;
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                             groundTilemap.SetTile(tilePosition1, rightTile);
+                            roomplaceposY++;
                         }
 
                         for (int i = 0; i < roomSize; i++)
@@ -156,33 +166,35 @@ public class procgenerooms : MonoBehaviour
                             roomplaceposX++;
                         }
                         roomplaceposX--;
-                        nextXStart = roomplaceposX;
+
+                        nextXStart = roomplaceposX + 1;
+                        nextYStart = roomplaceposY - roomSize + 1;
+
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
+
+                        lastroomType = 0;
                         break;
 
                     case 1: // Go up
 
                         roomplaceposX = nextXStart;
                         roomplaceposY = nextYStart;
-                        nextXStart = roomplaceposX;
+
                         for (int i = 0; i < roomSize; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
+                            Vector3Int tilePosition2 = new Vector3Int(roomplaceposX + roomSize - 1, roomplaceposY, 0);
                             groundTilemap.SetTile(tilePosition1, upTile);
-                            for (int j = 0; j < roomSize + 1; j++)
-                            {
-                                Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
-                                //wallTilemap.SetTile(tilePosition3, wallTile);
-                            }
-                            roomplaceposX++;
-                        }
-                        roomplaceposX--;
-                        for (int i = 0; i < roomSize - 1; i++)
-                        {
+                            groundTilemap.SetTile(tilePosition2, upTile);
                             roomplaceposY++;
-                            Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                            groundTilemap.SetTile(tilePosition1, upTile);
                         }
-                        nextYStart = roomplaceposY;
+
+                        nextYStart += roomSize;
+
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
+
                         lastroomType = 1;
                         break;
 
@@ -193,6 +205,7 @@ public class procgenerooms : MonoBehaviour
                         break;
                 }
             }
+
         }
     }
 }
