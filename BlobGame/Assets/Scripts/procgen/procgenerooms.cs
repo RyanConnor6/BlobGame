@@ -16,14 +16,49 @@ public class procgenerooms : MonoBehaviour
 
     private int roomplaceposX = 15;
     private int roomplaceposY = -2;
-    private int nextXStart = 0;
-    private int nextYStart = 0;
+    private int nextXStart = -2;
+    private int nextYStart = -2;
     private int lastroomType = 0; //0 is open from left, can move right up or down. 1 is open from top, can move right or up. 2 is open from bottom, can move right or down.
 
     private void Start()
     {
+        //generate start room
+        GenerateStart();
         //generate map
         GenerateTilemap();
+    }
+
+    void GenerateStart()
+    {
+        roomplaceposX = nextXStart;
+        roomplaceposY = nextYStart;
+
+        for (int wallPlacer = 0; wallPlacer < 16; wallPlacer++)
+        {
+            for (int j = 0; j < roomSize; j++)
+            {
+                Vector3Int tilePosition3 = new Vector3Int(roomplaceposX + wallPlacer, roomplaceposY + j, 0);
+                wallTilemap.SetTile(tilePosition3, wallTile);
+            }
+        }
+
+        for (int i = 0; i < roomSize; i++)
+        {
+            Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + i, 0);
+            groundTilemap.SetTile(tilePosition3, upTile);
+        }
+
+        for (int i = 0; i < 16; i++)
+        {
+            Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
+            Vector3Int tilePosition4 = new Vector3Int(roomplaceposX, roomplaceposY + roomSize -1, 0);
+            groundTilemap.SetTile(tilePosition3, upTile);
+            groundTilemap.SetTile(tilePosition4, upTile);
+            roomplaceposX++;
+        }
+
+        nextXStart = roomplaceposX;
+        nextYStart = roomplaceposY;
     }
 
     void GenerateTilemap()
