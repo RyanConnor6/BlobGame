@@ -18,7 +18,7 @@ public class procgenerooms : MonoBehaviour
     private int roomplaceposY = -2;
     private int nextXStart = 0;
     private int nextYStart = 0;
-    private int lastroomType = 2; //0 is open from left, can move right up or down. 1 is open from top, can move right or up. 2 is open from bottom, can move right or down.
+    private int lastroomType = 0; //0 is open from left, can move right up or down. 1 is open from top, can move right or up. 2 is open from bottom, can move right or down.
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class procgenerooms : MonoBehaviour
     {
         nextXStart = roomplaceposX;
         nextYStart = roomplaceposY;
-        for (int rooms = 0; rooms < 1; rooms++)
+        for (int rooms = 0; rooms < 50; rooms++)
         {
             if (lastroomType == 0) //Last room went right, can go right up or down
             {
@@ -42,9 +42,6 @@ public class procgenerooms : MonoBehaviour
 
                         roomplaceposX = nextXStart;
                         roomplaceposY = nextYStart;
-
-                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
-                        //groundTilemap.SetTile(tilePosition5, wallTile);
 
                         for (int i = 0; i < roomSize; i++)
                         {
@@ -63,6 +60,10 @@ public class procgenerooms : MonoBehaviour
 
                         nextXStart = roomplaceposX;
                         nextYStart = roomplaceposY;
+
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
+
                         lastroomType = 0;
                         break;
 
@@ -89,10 +90,11 @@ public class procgenerooms : MonoBehaviour
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                             groundTilemap.SetTile(tilePosition1, upTile);
                         }
-                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
-                        //groundTilemap.SetTile(tilePosition5, wallTile);
 
                         nextYStart = roomplaceposY;
+
+                        //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
+                        //groundTilemap.SetTile(tilePosition5, wallTile);
 
                         lastroomType = 1;
                         break;
@@ -115,15 +117,16 @@ public class procgenerooms : MonoBehaviour
                         roomplaceposX--;
                         for (int i = 0; i < roomSize - 1; i++)
                         {
-                            roomplaceposY++;
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                             groundTilemap.SetTile(tilePosition1, downTile);
+                            roomplaceposY++;
                         }
+
+                        nextYStart = roomplaceposY - roomSize * 2 + 2;
 
                         //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
                         //groundTilemap.SetTile(tilePosition5, wallTile);
 
-                        nextYStart = roomplaceposY - roomSize * 2 + 2;
                         lastroomType = 2;
                         break;
 
@@ -135,7 +138,7 @@ public class procgenerooms : MonoBehaviour
                 }
             }
 
-            if (lastroomType == 1) // Last room went up, can go right or up
+            else if (lastroomType == 1) // Last room went up, can go right or up
             {
                 int randomValue = Random.Range(0, 2);
                 //int randomValue = 1;
@@ -167,7 +170,7 @@ public class procgenerooms : MonoBehaviour
                         }
                         roomplaceposX--;
 
-                        nextXStart = roomplaceposX + 1;
+                        nextXStart = roomplaceposX;
                         nextYStart = roomplaceposY - roomSize + 1;
 
                         //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
@@ -190,7 +193,7 @@ public class procgenerooms : MonoBehaviour
                             roomplaceposY++;
                         }
 
-                        nextYStart += roomSize;
+                        nextYStart += roomSize -1;
 
                         //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
                         //groundTilemap.SetTile(tilePosition5, wallTile);
@@ -206,10 +209,10 @@ public class procgenerooms : MonoBehaviour
                 }
             }
 
-            if (lastroomType == 2) // Last room went down, can go right or down
+            else if (lastroomType == 2) // Last room went down, can go right or down
             {
-                //int randomValue = Random.Range(0, 2);
-                int randomValue = 1;
+                int randomValue = Random.Range(0, 2);
+                //int randomValue = 1;
 
                 switch (randomValue)
                 {
@@ -238,7 +241,7 @@ public class procgenerooms : MonoBehaviour
                         }
                         roomplaceposX--;
 
-                        nextXStart = roomplaceposX + 1;
+                        nextXStart = roomplaceposX;
                         nextYStart = roomplaceposY - roomSize + 1;
 
                         //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
@@ -261,7 +264,7 @@ public class procgenerooms : MonoBehaviour
                             roomplaceposY++;
                         }
 
-                        nextYStart -= roomSize;
+                        nextYStart -= roomSize -1;
 
                         //Vector3Int tilePosition5 = new Vector3Int(nextXStart, nextYStart, 0);
                         //groundTilemap.SetTile(tilePosition5, wallTile);
@@ -275,6 +278,11 @@ public class procgenerooms : MonoBehaviour
                         // Code for default case
                         break;
                 }
+            }
+
+            else
+            {
+                break;
             }
 
         }
