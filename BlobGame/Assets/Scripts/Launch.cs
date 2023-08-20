@@ -6,6 +6,7 @@ public class Launch : MonoBehaviour
 {
     public float launchForce = 10f;
     public float maxLaunch = 10f;
+    public float maxSpeed = 10f;
     public GameObject arrowPrefab;
 
     private Rigidbody2D rb;
@@ -88,6 +89,16 @@ public class Launch : MonoBehaviour
                 }
                 canLaunch = false;
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        // Check if the rigidbody's velocity magnitude exceeds the maximum speed
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            // Cap the velocity while preserving the direction
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
 }

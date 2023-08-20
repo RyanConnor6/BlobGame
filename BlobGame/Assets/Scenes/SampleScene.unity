@@ -3665,6 +3665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   launchForce: 30
   maxLaunch: 13
+  maxSpeed: 20
   arrowPrefab: {fileID: 4330644846367429819, guid: 4de2ddc3ec632eb49a77c2a223c81074, type: 3}
 --- !u!114 &733280117
 MonoBehaviour:
