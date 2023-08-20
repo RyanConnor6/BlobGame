@@ -18,7 +18,7 @@ public class procgenerooms : MonoBehaviour
     private int roomplaceposY = -2;
     private int nextXStart = 0;
     private int nextYStart = 0;
-    private int lastroomType = 0; //0 is open from left, can move right up or down. 1 is open from top, can move right or up. 2 is open from bottom, can move right or down.
+    private int lastroomType = 1; //0 is open from left, can move right up or down. 1 is open from top, can move right or up. 2 is open from bottom, can move right or down.
 
     private void Start()
     {
@@ -120,7 +120,77 @@ public class procgenerooms : MonoBehaviour
                         Debug.Log("Value is not 1, 2, or 3");
                         // Code for default case
                         break;
+                }
+            }
 
+            if (lastroomType == 1)
+            {
+                //int randomValue = Random.Range(0, 2);
+                int randomValue = 0;
+
+                switch (randomValue)
+                {
+                    case 0: // Go right
+
+                        roomplaceposX = nextXStart;
+                        roomplaceposY = nextYStart;
+
+                        nextYStart = roomplaceposY;
+                        roomplaceposY--;
+                        for (int i = 0; i < roomSize; i++)
+                        {
+                            roomplaceposY++;
+                            Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
+                            groundTilemap.SetTile(tilePosition1, rightTile);
+                        }
+
+                        for (int i = 0; i < roomSize; i++)
+                        {
+                            Vector3Int tilePosition2 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
+                            groundTilemap.SetTile(tilePosition2, rightTile);
+                            for (int j = 0; j < roomSize + 1; j++)
+                            {
+                                Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
+                                //wallTilemap.SetTile(tilePosition3, wallTile);
+                            }
+                            roomplaceposX++;
+                        }
+                        roomplaceposX--;
+                        nextXStart = roomplaceposX;
+                        break;
+
+                    case 1: // Go up
+
+                        roomplaceposX = nextXStart;
+                        roomplaceposY = nextYStart;
+                        nextXStart = roomplaceposX;
+                        for (int i = 0; i < roomSize; i++)
+                        {
+                            Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
+                            groundTilemap.SetTile(tilePosition1, upTile);
+                            for (int j = 0; j < roomSize + 1; j++)
+                            {
+                                Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
+                                //wallTilemap.SetTile(tilePosition3, wallTile);
+                            }
+                            roomplaceposX++;
+                        }
+                        roomplaceposX--;
+                        for (int i = 0; i < roomSize - 1; i++)
+                        {
+                            roomplaceposY++;
+                            Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
+                            groundTilemap.SetTile(tilePosition1, upTile);
+                        }
+                        nextYStart = roomplaceposY;
+                        lastroomType = 1;
+                        break;
+
+                    default:
+
+                        Debug.Log("Value is not 1, 2, or 3");
+                        // Code for default case
+                        break;
                 }
             }
         }
