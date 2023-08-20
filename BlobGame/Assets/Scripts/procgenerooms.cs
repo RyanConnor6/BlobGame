@@ -29,7 +29,7 @@ public class procgenerooms : MonoBehaviour
     {
         nextXStart = roomplaceposX;
         nextYStart = roomplaceposY;
-        for (int rooms = 0; rooms < 100; rooms++)
+        for (int rooms = 0; rooms < 2; rooms++)
         {
             if (lastroomType == 0)
             {
@@ -58,6 +58,7 @@ public class procgenerooms : MonoBehaviour
                         roomplaceposX--;
                         nextXStart = roomplaceposX;
                         nextYStart = roomplaceposY;
+                        lastroomType = 0;
                         break;
 
                     case 1: // Go up
@@ -84,6 +85,7 @@ public class procgenerooms : MonoBehaviour
                             groundTilemap.SetTile(tilePosition1, upTile);
                         }
                         nextYStart = roomplaceposY;
+                        lastroomType = 1;
                         break;
 
                     case 2: //Go down
@@ -110,6 +112,7 @@ public class procgenerooms : MonoBehaviour
                             groundTilemap.SetTile(tilePosition1, downTile);
                         }
                         nextYStart = roomplaceposY - roomSize * 2 + 2;
+                        lastroomType = 2;
                         break;
 
                     default:
