@@ -68,7 +68,7 @@ public class procgenerooms : MonoBehaviour
         nextYStart = roomplaceposY;
 
         //Loop for amount of rooms
-        for (int rooms = 0; rooms < 100; rooms++)
+        for (int rooms = 0; rooms < 200; rooms++)
         {
             if (lastroomType == 0) //Last room went right, can go right up or down
             {
@@ -113,7 +113,7 @@ public class procgenerooms : MonoBehaviour
                 if (obstacleChance == 0)
                 {
                     int obstaclePlacement = Mathf.FloorToInt(Random.Range(0 + 1, (roomSize / 2) - 1));
-                    int obstacleHeight = Random.Range(0, roomSize - 4);
+                    int obstacleHeight = Random.Range(2, roomSize - 4);
 
                     obstacleType = Random.Range(0, 2);
                     if (obstacleType == 0)
@@ -137,8 +137,8 @@ public class procgenerooms : MonoBehaviour
                 obstacleChance = Random.Range(0, 2); // random 1 in 2 chance for obstacle in second half
                 if (obstacleChance == 0)
                 {
-                    int obstaclePlacement = Mathf.FloorToInt(Random.Range((roomSize / 2) + 1, roomSize - 1));
-                    int obstacleHeight = Random.Range(0, roomSize - 4);
+                    int obstaclePlacement = Mathf.FloorToInt(Random.Range((roomSize / 2) + 1, roomSize - 2));
+                    int obstacleHeight = Random.Range(2, roomSize - 4);
 
                     obstacleType = Random.Range(0, 2);
                     if (obstacleType == 0)
@@ -162,34 +162,49 @@ public class procgenerooms : MonoBehaviour
                 break;
 
             case 1: // up from right
-                /*
-                obstacleChance = Random.Range(0, 3); // random 1 in 3 chance for obstacle in first half
+
+                obstacleChance = Random.Range(0, 2); // random 1 in 2 chance for obstacle in first half
 
                 if (obstacleChance == 0)
                 {
                     int obstaclePlacement = Mathf.FloorToInt(Random.Range(0, (roomSize / 2) - 1));
-                    int obstacleHeight = Random.Range(0, roomSize - 2);
+                    int obstacleHeight = Random.Range(0, roomSize - 4);
 
                     for (int i = 0; i < obstacleHeight; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + i, 0);
-                        groundTilemap.SetTile(tilePosition1, groundTile);
+                        groundTilemap.SetTile(tilePosition1, upTile);
                     }
                 }
 
-                obstacleChance = Random.Range(0, 3); // random 1 in 3 chance for obstacle in second half
+                /*
+                obstacleChance = Random.Range(0, 2); // random 1 in 2 chance for obstacle in second half
                 if (obstacleChance == 0)
                 {
-                    int obstaclePlacement = (Mathf.FloorToInt(Random.Range(roomSize / 2, roomSize)));
-                    int obstacleHeight = Random.Range(0, roomSize - 2);
+                    int obstaclePlacement = Mathf.FloorToInt(Random.Range((roomSize / 2) + 1, roomSize - 2));
+                    int obstacleHeight = Mathf.FloorToInt(Random.Range(2, (roomSize / 2) - 3));
 
                     for (int i = 0; i < obstacleHeight; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + i, 0);
-                        groundTilemap.SetTile(tilePosition1, groundTile);
+                        groundTilemap.SetTile(tilePosition1, upTile);
                     }
                 }
                 */
+
+                obstacleChance = Random.Range(0, 10); // random 8 in 10 chance for obstacle on side
+                if (obstacleChance <= 7)
+                {
+                    int obstaclePlacement = Mathf.FloorToInt(Random.Range(roomSize / 2 - 2, roomSize / 2));
+                    int obstacleLength = Mathf.FloorToInt(Random.Range(3, (roomSize - 4)));
+
+                    for (int i = 0; i < obstacleLength; i++)
+                    {
+                        Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + roomSize - 1 - i, roomplaceposY + obstaclePlacement, 0);
+                        groundTilemap.SetTile(tilePosition1, upTile);
+                    }
+                }
+
                 break;
 
             case 2: // down from right
@@ -357,7 +372,7 @@ public class procgenerooms : MonoBehaviour
     void genRight()
     {
         int randomValue = Random.Range(0, 3);
-        //int randomValue = 0;
+        //int randomValue = 1;
 
         switch (randomValue)
         {
