@@ -45,15 +45,15 @@ public class procgenerooms : MonoBehaviour
         for (int i = 0; i < roomSize; i++)
         {
             Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + i, 0);
-            groundTilemap.SetTile(tilePosition3, upTile);
+            groundTilemap.SetTile(tilePosition3, groundTile);
         }
 
         for (int i = 0; i < 16; i++)
         {
             Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
             Vector3Int tilePosition4 = new Vector3Int(roomplaceposX, roomplaceposY + roomSize -1, 0);
-            groundTilemap.SetTile(tilePosition3, upTile);
-            groundTilemap.SetTile(tilePosition4, upTile);
+            groundTilemap.SetTile(tilePosition3, groundTile);
+            groundTilemap.SetTile(tilePosition4, groundTile);
             roomplaceposX++;
         }
 
@@ -121,7 +121,7 @@ public class procgenerooms : MonoBehaviour
                         for (int i = 0; i < obstacleHeight; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + i, 0);
-                            groundTilemap.SetTile(tilePosition1, rightTile);
+                            groundTilemap.SetTile(tilePosition1, groundTile);
                         }
                     }
                     else
@@ -129,7 +129,7 @@ public class procgenerooms : MonoBehaviour
                         for (int i = 0; i < obstacleHeight; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + roomSize - 1 - i, 0);
-                            groundTilemap.SetTile(tilePosition1, rightTile);
+                            groundTilemap.SetTile(tilePosition1, groundTile);
                         }
                     }
                 }
@@ -146,7 +146,7 @@ public class procgenerooms : MonoBehaviour
                         for (int i = 0; i < obstacleHeight; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + roomSize - 1 - i, 0);
-                            groundTilemap.SetTile(tilePosition1, rightTile);
+                            groundTilemap.SetTile(tilePosition1, groundTile);
                         }
                     }
                     else
@@ -154,7 +154,7 @@ public class procgenerooms : MonoBehaviour
                         for (int i = 0; i < obstacleHeight; i++)
                         {
                             Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + i, 0);
-                            groundTilemap.SetTile(tilePosition1, rightTile);
+                            groundTilemap.SetTile(tilePosition1, groundTile);
                         }
                     }
                 }
@@ -173,7 +173,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleHeight; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + i, 0);
-                        groundTilemap.SetTile(tilePosition1, upTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -186,7 +186,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + roomSize - 1 - i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, upTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -204,7 +204,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleHeight; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + roomSize - 1 - i, 0);
-                        groundTilemap.SetTile(tilePosition1, downTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -217,7 +217,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + roomSize - 1 - i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, downTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -235,7 +235,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleHeight; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + roomSize - 1 - i, 0);
-                        groundTilemap.SetTile(tilePosition1, rightTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -248,7 +248,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, rightTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -265,7 +265,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, upTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -278,7 +278,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + roomSize - 1 - i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, upTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -296,7 +296,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleHeight; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + obstaclePlacement, roomplaceposY + i, 0);
-                        groundTilemap.SetTile(tilePosition1, rightTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -309,7 +309,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, rightTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -326,7 +326,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, downTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -339,7 +339,7 @@ public class procgenerooms : MonoBehaviour
                     for (int i = 0; i < obstacleLength; i++)
                     {
                         Vector3Int tilePosition1 = new Vector3Int(roomplaceposX + roomSize - 1 - i, roomplaceposY + obstaclePlacement, 0);
-                        groundTilemap.SetTile(tilePosition1, downTile);
+                        groundTilemap.SetTile(tilePosition1, groundTile);
                     }
                 }
 
@@ -375,8 +375,8 @@ public class procgenerooms : MonoBehaviour
                     }
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                     Vector3Int tilePosition2 = new Vector3Int(roomplaceposX, roomplaceposY + roomSize - 1, 0);
-                    groundTilemap.SetTile(tilePosition1, rightTile);
-                    groundTilemap.SetTile(tilePosition2, rightTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
+                    groundTilemap.SetTile(tilePosition2, groundTile);
                     roomplaceposX++;
                 }
                 roomplaceposX--;
@@ -405,7 +405,7 @@ public class procgenerooms : MonoBehaviour
                         wallTilemap.SetTile(tilePosition3, wallTile);
                     }
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, upTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
                     for (int j = 0; j < roomSize + 1; j++)
                     {
                         Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
@@ -418,7 +418,7 @@ public class procgenerooms : MonoBehaviour
                 {
                     roomplaceposY++;
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, upTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
                 }
 
                 nextYStart = roomplaceposY;
@@ -443,7 +443,7 @@ public class procgenerooms : MonoBehaviour
                         wallTilemap.SetTile(tilePosition3, wallTile);
                     }
                     Vector3Int tilePosition2 = new Vector3Int(roomplaceposX, roomplaceposY + roomSize - 1, 0);
-                    groundTilemap.SetTile(tilePosition2, downTile);
+                    groundTilemap.SetTile(tilePosition2, groundTile);
                     for (int j = 0; j < roomSize + 1; j++)
                     {
                         Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
@@ -455,7 +455,7 @@ public class procgenerooms : MonoBehaviour
                 for (int i = 0; i < roomSize - 1; i++)
                 {
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, downTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
                     roomplaceposY++;
                 }
 
@@ -501,14 +501,14 @@ public class procgenerooms : MonoBehaviour
                 for (int i = 0; i < roomSize - 1; i++)
                 {
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, rightTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
                     roomplaceposY++;
                 }
 
                 for (int i = 0; i < roomSize; i++)
                 {
                     Vector3Int tilePosition2 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition2, rightTile);
+                    groundTilemap.SetTile(tilePosition2, groundTile);
                     for (int j = 0; j < roomSize + 1; j++)
                     {
                         Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
@@ -547,8 +547,8 @@ public class procgenerooms : MonoBehaviour
                 {
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                     Vector3Int tilePosition2 = new Vector3Int(roomplaceposX + roomSize - 1, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, upTile);
-                    groundTilemap.SetTile(tilePosition2, upTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
+                    groundTilemap.SetTile(tilePosition2, groundTile);
                     roomplaceposY++;
                 }
 
@@ -595,13 +595,13 @@ public class procgenerooms : MonoBehaviour
                 {
                     roomplaceposY++;
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, rightTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
                 }
 
                 for (int i = 0; i < roomSize; i++)
                 {
                     Vector3Int tilePosition2 = new Vector3Int(roomplaceposX, roomplaceposY - roomSize + 1, 0);
-                    groundTilemap.SetTile(tilePosition2, rightTile);
+                    groundTilemap.SetTile(tilePosition2, groundTile);
                     for (int j = 0; j < roomSize + 1; j++)
                     {
                         Vector3Int tilePosition3 = new Vector3Int(roomplaceposX, roomplaceposY + j, 0);
@@ -640,8 +640,8 @@ public class procgenerooms : MonoBehaviour
                 {
                     Vector3Int tilePosition1 = new Vector3Int(roomplaceposX, roomplaceposY, 0);
                     Vector3Int tilePosition2 = new Vector3Int(roomplaceposX + roomSize - 1, roomplaceposY, 0);
-                    groundTilemap.SetTile(tilePosition1, downTile);
-                    groundTilemap.SetTile(tilePosition2, downTile);
+                    groundTilemap.SetTile(tilePosition1, groundTile);
+                    groundTilemap.SetTile(tilePosition2, groundTile);
                     roomplaceposY++;
                 }
 
