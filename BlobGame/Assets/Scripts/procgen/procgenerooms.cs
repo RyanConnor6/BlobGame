@@ -137,7 +137,7 @@ public class procgenerooms : MonoBehaviour
                 obstacleChance = Random.Range(0, 2); // random 1 in 2 chance for obstacle in second half
                 if (obstacleChance == 0)
                 {
-                    int obstaclePlacement = Mathf.FloorToInt(Random.Range((roomSize / 2) + 1, roomSize - 2));
+                    int obstaclePlacement = Mathf.FloorToInt(Random.Range((roomSize / 2) + 2, roomSize - 2));
                     int obstacleHeight = Random.Range(2, roomSize - 4);
 
                     obstacleType = Random.Range(0, 2);
